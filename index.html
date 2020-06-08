@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Message Passed</title>
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="container">
+	<div class="message-in">
+		<h2>A Messge You Would Like To Pass</h2>
+		<input id="messageSent" type="text" placeholder="Type a message">
+		<button id="sendBtn">Submit</button>
+
+		<div class="message-out">
+			<h3>Last Message Delivered</h3>
+			<p id="messageReceived">Message Received</p>
+		</div>
+	</div>
+</div>
+<script>
+	const messageSent = document.querySelector('#messageSent');
+	const messageReceived = document.querySelector('#messageReceived');
+	const sendBtn = document.querySelector('#sendBtn');
+
+	sendBtn.addEventListener('click', sendMsg);
+
+	function sendMsg () {
+		let messageContent = messageSent.value;
+
+		if (messageContent === '') {
+			alert('Please enter a message')
+		} else {
+			messageReceived.innerHTML = messageContent;
+			messageSent.value = '';
+		}
+	}
+</script>
+
+</body>
+</html>
